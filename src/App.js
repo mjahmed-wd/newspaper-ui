@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import "./assets/styles/styles.scss";
+import newsInfo from "./assets/data/data.json"
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Hi</h1>
+      {newsInfo.map(news =>
+        <div key={news?.id}>
+          <h2>{news?.title}</h2>
+          <p>{news?.description}</p>
+        </div>
+      )}
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
