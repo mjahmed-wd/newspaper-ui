@@ -1,0 +1,21 @@
+$boxShadow :  0px 1px 2px 0px rgba(0,0,0,0.77);
+
+.container {
+  width: 90%;
+  margin: 20px auto;
+}
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: $boxShadow;
+  -webkit-box-shadow: $boxShadow;
+  -moz-box-shadow: $boxShadow;
+  margin: 0 0 20px 0;
+
+  img {
+    height: 65px;
+    padding: 15px 0;
+  }
+}
