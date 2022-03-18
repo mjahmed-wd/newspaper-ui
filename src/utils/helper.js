@@ -13,7 +13,7 @@ export const getNewsData = async (setter) => {
             ...item, isShowDescription: false,
             isShowImage: false
         }))
-        const newsWithImages = [...sortedData]?.slice(5)?.map(item => ({
+        const newsWithImages = [...sortedData]?.slice(5,11)?.map(item => ({
             ...item,
             isShowDescription: false,
             isShowImage: false

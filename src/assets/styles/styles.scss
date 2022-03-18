@@ -3,6 +3,18 @@ $black-primary: #222222;
 $black-secondary: #555555;
 $blue-primary: #4295ec;
 
+a {
+  text-decoration: none;
+  color: $black-primary;
+  span {
+    &:hover {
+      color: $blue-primary;
+    }
+  }
+  &:hover {
+    color: $black-primary;
+  }
+}
 .container {
   width: 90%;
   margin: 20px auto;

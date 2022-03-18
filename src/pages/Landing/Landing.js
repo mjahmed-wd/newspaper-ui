@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import LeadingNews from '../../components/LeadingNews';
+import NewsWithImage from '../../components/NewsWithImage';
 import NewsWithNoImage from '../../components/NewsWithNoImage';
 import { getNewsData } from '../../utils/helper';
 
@@ -16,6 +17,11 @@ const LandingPage = () => {
             <>
                 {allNews?.newsWithNoImages?.map(news =>
                     <NewsWithNoImage key={news?.id} news={news} />
+                )}
+            </>
+            <>
+                {allNews?.newsWithImages?.map(news =>
+                    <NewsWithImage key={news?.id} news={news} />
                 )}
             </>
             <span className="ad">Ad</span>
