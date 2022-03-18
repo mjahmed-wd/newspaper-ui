@@ -9,13 +9,13 @@ const NewsWithImage = ({ news }) => {
 
         <div className="news" style={{ display: 'flex' }}>
 
-            <div style={{ width: "25%" }}>
+            <div style={{ width: "40%" }}>
                 <Link to={`/news`}>
                     <Image news={news} />
                 </Link>
             </div>
 
-            <div style={{ width: "75%", paddingLeft: "1rem" }}>
+            <div style={{ width: "60%", paddingLeft: "1rem" }}>
                 <Link to={`/news`}>
                     <NewsTitles variant="h2" subTitle={news?.["sup-title"]}>{news?.title}</NewsTitles>
                 </Link>

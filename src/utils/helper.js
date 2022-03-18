@@ -13,13 +13,15 @@ export const getNewsData = async (setter) => {
             ...item, isShowDescription: false,
             isShowImage: false
         }))
-        const newsWithImages = [...sortedData]?.slice(5,11)?.map(item => ({
+        const newsWithImages = [...sortedData]?.slice(5, 11)?.map(item => ({
             ...item,
             isShowDescription: false,
             isShowImage: false
         }))
-        console.table({leadNews, newsWithNoImages, newsWithImages})
-        setter({leadNews, newsWithNoImages, newsWithImages})
+        const featureLead = { ...sortedData[11] }
+        const featureNews = { ...sortedData[12] }
+        console.table({ leadNews, newsWithNoImages, newsWithImages, featureNews, featureLead })
+        setter({ leadNews, newsWithNoImages, newsWithImages, featureNews, featureLead })
     } catch (err) {
         console.log(err);
     }
