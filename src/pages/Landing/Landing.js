@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import NewsWithNoImage from '../../components/NewsWithNoImage';
 import { getNewsData } from '../../utils/helper';
 import { timeAgo } from "./../../assets/functions/timeAgo";
 
@@ -10,14 +11,14 @@ const LandingPage = () => {
     }, [])
 
     return (
-        <div className="container">
-            {news.map(news =>
-                <div key={news?.id}>
-                    <h2>{news?.title}</h2>
-                    <p>{news?.description}</p>
-                    <p>{timeAgo(new Date("2021-04-18T21:39:36+06:00"))}</p>
-                </div>
-            )}
+        <div className="container grid-container">
+            <span className="leadNews"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora quam, minus labore vel mollitia, iure qui totam debitis voluptatem commodi non in repudiandae? Commodi quos impedit tempora laborum rerum maiores suscipit sapiente eveniet porro, consequuntur, natus ullam amet temporibus quam libero aut earum doloremque animi laudantium adipisci sequi harum consequatur! </span>
+            <>
+                {news?.map(news => <NewsWithNoImage key={news?.id} news={news} />
+                )}
+            </>
+            <span className="ad">Ad</span>
+            <span className="feature">feature</span>
         </div>
     )
 }
