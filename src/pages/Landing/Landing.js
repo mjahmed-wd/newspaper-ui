@@ -30,8 +30,8 @@ const LandingPage = () => {
                 </>
             </div>
             <div className="ads_and_features_section">
-                <div className="ad_placement">
-                    Ad Placement
+                <div className="footer_ad_placement" >
+                   <h1> Ad Placement</h1>
                 </div>
                 <div className="features_section">
                     <Link to={`/news`}>
