@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from 'react';
+import LeadingNews from '../../components/LeadingNews';
 import NewsWithNoImage from '../../components/NewsWithNoImage';
 import { getNewsData } from '../../utils/helper';
-import { timeAgo } from "./../../assets/functions/timeAgo";
 
 const LandingPage = () => {
-    const [news, setNews] = useState([]);
+    const [allNews, setAllNews] = useState({});
 
     useEffect(() => {
-        getNewsData(setNews)
+        getNewsData(setAllNews)
     }, [])
 
     return (
         <div className="container grid-container">
-            <span className="leadNews"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora quam, minus labore vel mollitia, iure qui totam debitis voluptatem commodi non in repudiandae? Commodi quos impedit tempora laborum rerum maiores suscipit sapiente eveniet porro, consequuntur, natus ullam amet temporibus quam libero aut earum doloremque animi laudantium adipisci sequi harum consequatur! </span>
+            {allNews?.leadNews && <LeadingNews news={allNews?.leadNews} />}
             <>
-                {news?.map(news => <NewsWithNoImage key={news?.id} news={news} />
+                {allNews?.newsWithNoImages?.map(news =>
+                    <NewsWithNoImage key={news?.id} news={news} />
                 )}
             </>
             <span className="ad">Ad</span>

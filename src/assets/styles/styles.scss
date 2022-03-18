@@ -8,15 +8,38 @@ $blue-primary: #4295ec;
   margin: 20px auto;
   &.grid-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-gap: 1em;
   }
   .leadNews {
+    display: flex;
     grid-column-start: 1;
     grid-column-end: 3;
+    .leadNews_image_section {
+      width: 55%;
+      padding: 0 0.5rem;
+      .image_container {
+        position: relative;
+        overflow: hidden;
+        height: 200px;
+
+        img {
+          height: auto;
+          object-fit: contain;
+        }
+        // background: url("https://images.prothomalo.com/prothomalo-bangla%2F2021-04%2F36560bbf-e1d8-46c1-95f0-b945b3c4a56b%2FNorth_1.jfif")
+        //   no-repeat center center ;
+        //   background-size:cover;
+        // height: auto;
+        // width: 55%;
+      }
+    }
   }
   @mixin heading($size) {
     font-size: $size;
+  }
+  h1.news_titles {
+    @include heading(1.5rem);
   }
   h2.news_titles {
     @include heading(1.25rem);
