@@ -2,7 +2,9 @@ $boxShadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.77);
 $black-primary: #222222;
 $black-secondary: #555555;
 $blue-primary: #4295ec;
-
+// :root {
+//   --border: 2px solid $black-secondary;
+// }
 a {
   text-decoration: none;
   color: $black-primary;
@@ -15,7 +17,33 @@ a {
     color: $black-primary;
   }
 }
-
+@mixin box-shadow() {
+  box-shadow: $boxShadow;
+  -webkit-box-shadow: $boxShadow;
+  -moz-box-shadow: $boxShadow;
+}
+@mixin before() {
+  content: "";
+  position: absolute;
+  top: 5%;
+  right: 0;
+  width: 1px;
+  height: 90%;
+  background: $black-secondary;
+  opacity: 0.2;
+  z-index: -1;
+}
+@mixin after() {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: $black-secondary;
+  opacity: 0.2;
+  z-index: -1;
+}
 .container {
   display: flex;
   width: 90%;
@@ -24,18 +52,34 @@ a {
     width: 75%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 1em;
+    // row-gap: 20px;
+    // grid-gap: 1em;
   }
   .leadNews {
     display: flex;
     grid-column-start: 1;
     grid-column-end: 3;
+    position: relative;
+    padding: 0.5rem;
+    &::before {
+      @include before();
+    }
     .leadNews_news_section {
       width: 45%;
+      &::before {
+        @include before();
+      }
+      &::after {
+        @include after();
+      }
     }
     .leadNews_image_section {
       width: 55%;
       padding: 0 0.5rem;
+      z-index: -1;
+      &::after {
+        @include after();
+      }
       .image_container {
         position: relative;
         overflow: hidden;
@@ -45,11 +89,45 @@ a {
           height: auto;
           object-fit: contain;
         }
-        // background: url("https://images.prothomalo.com/prothomalo-bangla%2F2021-04%2F36560bbf-e1d8-46c1-95f0-b945b3c4a56b%2FNorth_1.jfif")
-        //   no-repeat center center ;
-        //   background-size:cover;
-        // height: auto;
-        // width: 55%;
+      }
+    }
+  }
+  .news {
+    padding: 0.5rem;
+    // border-bottom: 1px solid $black-secondary;
+  }
+
+  // .news:nth-child(n) {
+  //   border-right: 1px solid $black-secondary;
+  // }
+
+  .news {
+    position: relative;
+    &:nth-child(n) {
+      &::before {
+        @include before();
+      }
+      &::after {
+        @include after();
+      }
+      // border-right: 1px solid $black-secondary;
+      // border-bottom: 1px solid $black-secondary;
+    }
+    &:nth-child(2),
+    &:nth-child(5),
+    &:nth-child(8),
+    &:nth-child(11),
+    &:last-child {
+      // border-right: none;
+      &::before {
+        content: none;
+      }
+    }
+    &:nth-child(9),
+    &:nth-child(10),
+    &:nth-child(11) {
+      &::after {
+        content: none;
       }
     }
   }
@@ -63,15 +141,14 @@ a {
   @mixin heading($size) {
     font-size: $size;
   }
+
   @mixin ad_placement {
     width: 100%;
     height: 10rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: $boxShadow;
-    -webkit-box-shadow: $boxShadow;
-    -moz-box-shadow: $boxShadow;
+    @include box-shadow();
     margin: 0 0 20px 0;
     img {
       height: 65px;
@@ -105,6 +182,7 @@ a {
     padding-top: 0.5rem;
   }
   .ads_and_features_section {
+    // border-left: 1px solid $black-secondary;
     width: 25%;
     .features_section {
       margin: 0.5rem 0;
@@ -120,11 +198,14 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: $boxShadow;
-  -webkit-box-shadow: $boxShadow;
-  -moz-box-shadow: $boxShadow;
+  @include box-shadow();
   margin: 0 0 20px 0;
-
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: #fff;
+  z-index: 999;
   img {
     height: 65px;
     padding: 15px 0;
@@ -136,9 +217,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: $boxShadow;
-  -webkit-box-shadow: $boxShadow;
-  -moz-box-shadow: $boxShadow;
+  @include box-shadow();
   margin: 0 0 20px 0;
   img {
     height: 65px;
@@ -157,27 +236,42 @@ a {
 @media only screen and (max-width: 600px) {
   .container {
     display: block;
+    position: relative;
     .news-container {
       width: 100%;
       display: grid;
       grid-template-columns: repeat(1, 1fr);
-    }
-    .leadNews {
-      grid-column-end: 1;
-      flex-direction: column-reverse;
-      .leadNews_news_section {
-        width: 100%;
-      }
-      .leadNews_image_section {
-        width: 100%;
-        .image_container {
-          height: auto;
-          max-height: 400px;
+      .leadNews {
+        grid-column-end: 1;
+        flex-direction: column-reverse;
 
-          img {
-            height: auto;
-            object-fit: contain;
+        .leadNews_news_section {
+          width: 100%;
+          &::before {
+            content: none;
           }
+        }
+        .leadNews_image_section {
+          width: 100%;
+          .image_container {
+            height: auto;
+            max-height: 400px;
+
+            img {
+              height: auto;
+              object-fit: contain;
+            }
+          }
+        }
+      }
+    }
+    .news {
+      &:nth-child(n) {
+        &::before {
+          content: none;
+        }
+        &::after {
+          @include after();
         }
       }
     }
