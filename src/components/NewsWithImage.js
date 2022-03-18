@@ -9,7 +9,8 @@ const NewsWithImage = ({ news }) => {
 
         <div className="news" style={{ display: 'flex' }}>
 
-            <div style={{ width: "40%" }}>
+            <div className="lg-w-40">
+            {/* <div style={{ width: "40%" }}> */}
                 <Link to={`/news`}>
                     <Image news={news} />
                 </Link>

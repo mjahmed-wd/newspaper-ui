@@ -15,6 +15,7 @@ a {
     color: $black-primary;
   }
 }
+
 .container {
   display: flex;
   width: 90%;
@@ -29,6 +30,9 @@ a {
     display: flex;
     grid-column-start: 1;
     grid-column-end: 3;
+    .leadNews_news_section {
+      width: 45%;
+    }
     .leadNews_image_section {
       width: 55%;
       padding: 0 0.5rem;
@@ -48,6 +52,13 @@ a {
         // width: 55%;
       }
     }
+  }
+
+  img.responsive_image {
+    width: 100%;
+    max-width: 100px;
+    height: 100%;
+    max-height: 100px;
   }
   @mixin heading($size) {
     font-size: $size;
@@ -136,9 +147,57 @@ a {
 }
 .footer {
   .footer_ad_placement {
-   @extend .ad_placement;
+    @extend .ad_placement;
   }
   footer {
     text-align: center;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    display: block;
+    .news-container {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+    }
+    .leadNews {
+      grid-column-end: 1;
+      flex-direction: column-reverse;
+      .leadNews_news_section {
+        width: 100%;
+      }
+      .leadNews_image_section {
+        width: 100%;
+        .image_container {
+          height: auto;
+          max-height: 400px;
+
+          img {
+            height: auto;
+            object-fit: contain;
+          }
+        }
+      }
+    }
+    img.responsive_image {
+      max-width: 200px;
+      max-height: 200px;
+    }
+    .ads_and_features_section {
+      width: 100%;
+    }
+  }
+}
+@media only screen and (min-width: 600px) {
+  @mixin width($width) {
+    width: $width !important;
+  }
+  .lg-w-40 {
+    @include width(40%);
+  }
+  .lg-w-60 {
+    @include width(60%);
   }
 }

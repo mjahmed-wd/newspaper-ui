@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import LeadingNews from '../../components/LeadingNews';
+import NewsTitles from '../../components/NewsTitles';
 import NewsWithImage from '../../components/NewsWithImage';
 import NewsWithNoImage from '../../components/NewsWithNoImage';
 import { getNewsData } from '../../utils/helper';
-import { Link } from 'react-router-dom'
-import AdImage from "../../assets/images/nagad-is-set-to-begin-nagad-e-lakhpati-campaign-pic-1567106404728.jpg"
-import NewsTitles from '../../components/NewsTitles';
 
 
 const LandingPage = () => {
@@ -31,11 +30,9 @@ const LandingPage = () => {
                 </>
             </div>
             <div className="ads_and_features_section">
-                <>
-                    <div className="ad_placement">
-                        Ad Placement
-                    </div>
-                </>
+                <div className="ad_placement">
+                    Ad Placement
+                </div>
                 <div className="features_section">
                     <Link to={`/news`}>
                         <img src={allNews?.featureLead?.photo} alt="" />

@@ -7,7 +7,7 @@ const LeadingNews = ({ news }) => {
   console.log(news)
   return (
     <div className="leadNews">
-      <div style={{ width: "45%" }}>
+      <div className="leadNews_news_section">
         <NewsTitles variant="h1">{news?.title}</NewsTitles>
         <NewsDescription>{news?.description}</NewsDescription>
         <NewsTimes>{news?.time}</NewsTimes>
