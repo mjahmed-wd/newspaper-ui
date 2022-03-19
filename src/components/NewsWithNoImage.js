@@ -7,7 +7,7 @@ import NewsTitles from './NewsTitles'
 const NewsWithNoImage = ({ news }) => {
     return (
         <div className="news">
-            <Link to={`#`}>
+            <Link to={`/#`}>
                 <NewsTitles variant="h2">{news?.title}</NewsTitles>
             </Link>
             <NewsDescription>{news?.description}</NewsDescription>

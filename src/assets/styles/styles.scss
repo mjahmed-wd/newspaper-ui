@@ -2,9 +2,6 @@ $boxShadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.77);
 $black-primary: #222222;
 $black-secondary: #555555;
 $blue-primary: #4295ec;
-// :root {
-//   --border: 2px solid $black-secondary;
-// }
 a {
   text-decoration: none;
   color: $black-primary;
@@ -53,8 +50,6 @@ a {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     border-right: 1px solid rgba(85, 85, 85, 0.2);
-    // row-gap: 20px;
-    // grid-gap: 1em;
   }
   .leadNews {
     display: flex;
@@ -95,13 +90,7 @@ a {
   }
   .news {
     padding: 0.5rem;
-    // border-bottom: 1px solid $black-secondary;
   }
-
-  // .news:nth-child(n) {
-  //   border-right: 1px solid $black-secondary;
-  // }
-
   .news {
     position: relative;
     &:nth-child(n) {
@@ -111,15 +100,12 @@ a {
       &::after {
         @include after();
       }
-      // border-right: 1px solid $black-secondary;
-      // border-bottom: 1px solid $black-secondary;
     }
     &:nth-child(2),
     &:nth-child(5),
     &:nth-child(8),
     &:nth-child(11),
     &:last-child {
-      // border-right: none;
       &::before {
         content: none;
       }

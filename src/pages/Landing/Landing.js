@@ -34,7 +34,7 @@ const LandingPage = () => {
                     <h1> Ad Placement</h1>
                 </div>
                 <div className="news features_section">
-                    <Link to={`#`}>
+                    <Link to={`/#`}>
                         <img src={allNews?.featureLead?.photo} alt="" />
                         <NewsTitles variant="h2">{allNews?.featureLead?.title}</NewsTitles>
                     </Link>
