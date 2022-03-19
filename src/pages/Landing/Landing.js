@@ -31,15 +31,18 @@ const LandingPage = () => {
             </div>
             <div className="ads_and_features_section">
                 <div className="footer_ad_placement" >
-                   <h1> Ad Placement</h1>
+                    <h1> Ad Placement</h1>
                 </div>
-                <div className="features_section">
-                    <Link to={`/news`}>
+                <div className="news features_section">
+                    <Link to={`#`}>
                         <img src={allNews?.featureLead?.photo} alt="" />
                         <NewsTitles variant="h2">{allNews?.featureLead?.title}</NewsTitles>
                     </Link>
                 </div>
                 {allNews?.featureNews && <NewsWithImage news={allNews?.featureNews} />}
+                <div className="footer_ad_placement epaper" style={{marginTop: "1rem"}} >
+                    <h1>E-paper Ad</h1>
+                </div>
             </div>
         </div>
     )
